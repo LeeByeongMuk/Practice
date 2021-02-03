@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>위장</title>
+
+        <script>
+        function solution(clothes) {
+            var obj = {};
+            var answer = 1;
+
+            for (var i = 0; i < clothes.length; i++) {
+                obj[clothes[i][1]] = (obj[clothes[i][1]] || 0) + 1;
+            }
+
+            for (var o in obj) {
+                answer *= (obj[o] + 1);
+            }
+
+            return answer - 1;
+        }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
