@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>가운데 글자 가져오기</title>
+
+        <script>
+            function solution(s) {
+                s = s.split('');
+                var sLength = s.length;
+
+                if (sLength % 2 === 0) {
+                    var center = sLength / 2;
+                    return s[center - 1] + s[center];
+                } else {
+                    return s[(sLength - 1) / 2];
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
