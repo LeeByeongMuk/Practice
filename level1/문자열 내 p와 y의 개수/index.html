@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>문자열 내 p와 y의 개수</title>
+
+        <script>
+            function solution(s){
+                var p = s.match(/p/gi);
+                var y = s.match(/y/gi);
+
+                return (p != null ? p.length : 0) === (y != null ? y.length : 0) ? true : false;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
