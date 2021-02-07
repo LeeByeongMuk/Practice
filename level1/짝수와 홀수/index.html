@@ -2,13 +2,14 @@
 <html lang="ko">
     <head>
         <meta charset="utf-8">
-        <title>2016년</title>
+        <title>짝수와 홀수</title>
 
         <script>
-            function solution(a, b) {
-                var week = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-                return week[new Date(2016, a - 1, b).getDay()];
-            }
+        function solution(num) {
+            var arr = ["Even", "Odd"];
+
+            return arr[Math.abs(num) % 2];
+        }
         </script>
     </head>
     <body>
