@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>문자열 다루기 기본</title>
+
+        <script>
+            function solution(s) {
+                const length = s.length;
+
+                if (length === 4 || length === 6) {
+                    return s.split('').every((cur) => !isNaN(cur));
+                } else {
+                    return false;
+                }
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
