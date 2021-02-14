@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>자연수 뒤집어 배열로 만들기</title>
+
+        <script>
+            function solution(n) {
+                var answer = [];
+                n = n.toString().split('').reverse();
+
+                n.forEach(i => {
+                    answer.push(parseInt(i));
+                });
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
