@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>문자열 내 마음대로 정렬하기</title>
+
+        <script>
+            function solution(strings, n) {
+                var answer = strings.sort((a, b) => {
+                    var f = a[n];
+                    var s = b[n];
+
+                    if (f === s) {
+                        return a > b ? 1 : -1;
+                    } else {
+                        return f > s ? 1 : -1;
+                    }
+                });
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
