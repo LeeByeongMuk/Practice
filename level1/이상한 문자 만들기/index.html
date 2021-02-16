@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>이상한 문자 만들기</title>
+
+        <script>
+            function solution(s) {
+                s = s.split(' ');
+
+                var answer = s.map((item, index) => {
+                    return item.split('').reduce((acc, cur, i) => {
+                        if (i % 2 === 0) {
+                            return acc + cur.toUpperCase();
+                        } else {
+                            return acc + cur.toLowerCase();
+                        }
+                    }, '') + (s.length === index + 1 ? '' : ' ');
+                }).join('');
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
