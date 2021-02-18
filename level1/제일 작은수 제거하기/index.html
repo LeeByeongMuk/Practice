@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>제일 작은수 제거하기</title>
+
+        <script>
+            function solution(arr) {
+                var answer = [];
+
+                if (arr.length === 1) {
+                    answer = [-1];
+                } else {
+                    arr.splice(arr.indexOf(Math.min(...arr)), 1);
+                    answer = arr;
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
