@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>하샤드 수</title>
+
+        <script>
+            function solution(x) {
+                var answer = true;
+                var digit = x.toString().split('').reduce((acc, cur) => {
+                    return acc + parseInt(cur);
+                }, 0);
+
+                if (x % digit !== 0) {
+                    answer = false;
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
