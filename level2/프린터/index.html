@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>프린터</title>
+
+        <script>
+            function solution(priorities, location) {
+                var answer = 0;
+                var arr = Object.entries(Object.assign({}, priorities));
+
+                while (true) {
+                    var firstItem = arr.shift();
+
+                    if (arr.every(cur => firstItem[1] >= cur[1])) {
+                        answer++;
+
+                        if (firstItem[0] == location) {
+                            break;
+                        }
+                    } else {
+                        arr.push(firstItem);
+                    }
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
