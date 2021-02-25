@@ -12,9 +12,9 @@ section{
 
 	grid-auto-rows: minmax(300px, auto); /* grid-template-rows 없을때 작동 */
 
-    grid-template-areas:
+    /* grid-template-areas:
 		"article1 article2 article3"
-		"article4 article5 article6"
+		"article4 article5 article6" */
 }
 
 article{
@@ -23,28 +23,37 @@ article{
 
 article:first-child{
     /* 1번 라인에서 2칸 */
-	grid-column: 1 / span 2;
+	/* grid-column: 1 / span 2; */
 	/* 1번 라인에서 3칸 */
-	grid-row: 1 / span 3;
-    grid-area: article1;
+	/* grid-row: 1 / span 3; */
+    /* grid-area: article1; */
 }
 
 article:nth-child(2){
-    grid-area: article2;
+    /* grid-area: article2; */
 }
 
 article:nth-child(3){
-    grid-area: article3;
+    /* grid-area: article3; */
 }
 
 article:nth-child(4){
-    grid-area: article4;
+    /* grid-area: article4; */
 }
 
 article:nth-child(5){
-    grid-area: article5;
+    /* grid-area: article5; */
 }
 
 article:nth-child(6){
-    grid-area: article6;
+    /* grid-area: article6; */
+}
+
+@media (min-width: 768px) {
+    section{
+        grid-template-columns: repeat(2, 300px);
+    }
+    article{
+        width: 300px;
+    }
 }
