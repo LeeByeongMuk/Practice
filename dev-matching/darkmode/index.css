@@ -1,0 +1,40 @@
+:root{
+    --border-color: black;
+    --background-color: white;
+    --font-color: black;
+}
+
+@media (prepers-color-scheme: dark) {
+    :root{
+        --border-color: white;
+        --background-color: black;
+        --font-color: white;
+    }
+}
+
+[data-theme="dark"] {
+    --border-color: white;
+    --background-color: black;
+    --font-color: white;
+}
+
+body{
+    background-color: var(--background-color);
+    color: var(--font-color);
+}
+
+.btn-set-scheme{
+    color: var(--font-color);
+}
+
+section{
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, minmax(100px, auto));
+    gap: 50px 100px;
+}
+
+article{
+    border: 1px solid var(--border-color);
+}
