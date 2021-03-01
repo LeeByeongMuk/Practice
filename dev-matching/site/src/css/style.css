@@ -1,0 +1,62 @@
+:root {
+    --color-mode: 'light';
+    --color-dark: black;
+    --color-light: white;
+    --background: white;
+    --text-color: black;
+}
+
+body {
+    background: var(--background);
+    color: var(--text-color);
+    transition: background 500ms ease-in-out, color 200ms ease;
+}
+
+@media (presers-color-scheme: dark) {
+    :root{
+        --color-mode: 'dark';
+    }
+
+    :root:not([data-user-color-scheme]) {
+        --background: var(--color-dark);
+        --text-color: var(--color-light);
+    }
+}
+
+[data-user-color-scheme="dark"] {
+    --background: var(--color-dark);
+    --text-color: var(--color-light);
+}
+
+.searching-section {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.random-btn {
+    font-size: 50px;
+    margin-right: 10px;
+}
+
+.search-box-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.search-box {
+    font-size: 20px;
+}
+
+.recent-keywords {
+    margin-top: 10px;
+}
+
+.keyword {
+    margin-right: 8px;
+    padding: 5px;
+    border-radius: 11px;
+    background-color: rgb(255, 127, 0);
+    color: white;
+}
