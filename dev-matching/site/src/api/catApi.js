@@ -5,10 +5,10 @@ const request = async url => {
         const response = await fetch(url);
 
         if (response.ok) {
-            const data = response.json();
+            const data = await response.json();
             return data;
         } else {
-            const errorData = response.json();
+            const errorData = await response.json();
             throw errorData;
         }
     } catch (e) {
@@ -27,11 +27,11 @@ const api = {
                 return await request(`${API_ENDPOINT}/images/search?limit=20&breed_ids=${breed.id}`);
             });
             const responses = await Promise.all(requests);
-            const res = Array.prototype.concat.apply([], responses);
+            const result = Array.prototype.concat.apply([], responses);
 
             return {
                 isError: false,
-                data: res
+                data: result
             }
         } catch (e) {
             return {
