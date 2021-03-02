@@ -31,6 +31,10 @@ export default class App {
             }
         });
 
+        const loading = new Loading({
+            $target
+        });
+
         const error = new Error({
             $target
         });
