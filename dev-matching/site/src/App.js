@@ -1,4 +1,6 @@
-import SearchingSection from './components/SearchingSection.js';
+import SearchingSection from './components/SearchingSection.js'; // 검색창
+import Loading from './components/Loading.js'; // 검색시 로딩 영역
+import Error from './components/Error.js'; // 검색시 로딩 영역
 
 import api from './api/catApi.js';
 import { getItem, setItem } from './util/sessionStorage.js';
