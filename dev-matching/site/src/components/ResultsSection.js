@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import scrollFetch from '../util/scrollFetch.js';
 
 export default class ResultsSection {
     constructor({$target, data, onClick, onScroll}) {
@@ -11,6 +12,8 @@ export default class ResultsSection {
         $target.append(this.section);
 
         this.render();
+
+        scrollFetch(this.onScroll);
     }
 
     // react 에 setState 유사
