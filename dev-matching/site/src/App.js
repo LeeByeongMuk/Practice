@@ -16,21 +16,29 @@ export default class App {
             $target,
             keywords,
             onSearch: async keyword => {
+                loading.toggleSpinner();
+
                 const response = await api.fetchCats(keyword);
 
-                if (response.isError) {
+                if (!response.isError) {
                     setItem('data', response.data);
+                    resultsSection.setState(response.data);
+                    loading.toggleSpinner();
                 } else {
-                    console.log(response.data);
-                    // error.setState(response.data);
+                    error.setState(response.data);
                 }
             },
             onRandom: async () => {
+                loading.toggleSpinner();
+
                 const response = await api.fetchRandomCats();
+
                 if(!response.isError){
                     setItem('data', response.data);
+                    resultsSection.setState(response.data);
+                    loading.toggleSpinner();
                 } else {
-                    // error.setState(response.data);
+                    error.setState(response.data);
                 }
             }
         });
@@ -41,7 +49,21 @@ export default class App {
             onClick: data => {
                 detailModal.setState(data);
             },
-            onScroll: () => {
+            onScroll: async () => {
+                loading.toggleSpinner();
+
+                const response = await api.fetchRandomCats();
+
+                if (!response.isError) {
+                    const oldData = getItem('data');
+                    const newData = oldData.concat(response.data);
+
+                    setItem('data', newData);
+                    resultsSection.setState(newData);
+                    loading.toggleSpinner();
+                } else {
+                    error.setState(response.data);
+                }
 
             }
         });
