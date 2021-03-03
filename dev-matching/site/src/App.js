@@ -1,5 +1,6 @@
 import SearchingSection from './components/SearchingSection.js'; // 검색창
 import ResultsSection from './components/ResultsSection.js'; // 곰색 결과 영역
+import DetailModal from './components/DetailModal.js'; // 모달 영역
 import Loading from './components/Loading.js'; // 검색시 로딩 영역
 import Error from './components/Error.js'; // 검색시 로딩 영역
 
@@ -44,6 +45,11 @@ export default class App {
 
             }
         });
+
+        const detailModal = new DetailModal({
+            $target
+        });
+
         const loading = new Loading({
             $target
         });
