@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import lazyLoad from '../util/lazyLoad.js';
 import scrollFetch from '../util/scrollFetch.js';
 
 export default class ResultsSection {
@@ -13,6 +14,8 @@ export default class ResultsSection {
 
         this.render();
 
+        lazyLoad();
+
         scrollFetch(this.onScroll);
     }
 
@@ -20,6 +23,7 @@ export default class ResultsSection {
     setState(data) {
         this.data = data;
         this.render();
+        lazyLoad();
     }
 
     findCatById(id) {
