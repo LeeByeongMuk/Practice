@@ -3,6 +3,7 @@ import ResultsSection from './components/ResultsSection.js'; // 곰색 결과 �
 import DetailModal from './components/DetailModal.js'; // 모달 영역
 import Loading from './components/Loading.js'; // 검색시 로딩 영역
 import Error from './components/Error.js'; // 검색시 로딩 영역
+import RecommandSection from './components/RecommandSection.js'; // 검색시 로딩 영역
 
 import api from './api/catApi.js';
 import { getItem, setItem } from './util/sessionStorage.js';
@@ -67,6 +68,15 @@ export default class App {
 
             }
         });
+
+        const recommandSection = new RecommandSection({
+            $target,
+            data,
+            onClick: (keyword) => {
+                console.log(keyword);
+                searchingSection.onSearch(keyword);
+            }
+        })
 
         const detailModal = new DetailModal({
             $target

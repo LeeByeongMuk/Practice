@@ -36,6 +36,7 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
+    position: relative;
 }
 
 .random-btn {
@@ -63,6 +64,28 @@ body {
     border-radius: 11px;
     background-color: rgb(255, 127, 0);
     color: white;
+}
+
+.recommand-section {
+    position: absolute;
+    top: 70px;
+    width: 50%;
+    border: 1px solid black;
+    background: white;
+}
+
+.recommand-section ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.recommand-section ul li {
+    padding: 10px 0;
+    border-top: 1px solid black;
+}
+
+.recommand-section ul li:first-child{
+    border-top: 0;
 }
 
 .results-section {
