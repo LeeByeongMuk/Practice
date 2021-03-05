@@ -1,8 +1,21 @@
 const API_ENDPOINT = 'https://api.thecatapi.com/v1';
 
 const request = async url => {
+    let controller;
+
     try {
-        const response = await fetch(url);
+        if (controller) {
+            controller.abort();
+            controller = null;
+
+            return;
+        }
+
+        controller = new AbortController();
+
+        const response = await fetch(url, {
+            signal: controller.signal
+        });
 
         if (response.ok) {
             const data = await response.json();
@@ -12,9 +25,16 @@ const request = async url => {
             throw errorData;
         }
     } catch (e) {
-        throw {
-            message: e.message,
-            status: e.status
+        if (e.name === 'AbortError') {
+            throw {
+                message: 'AbortError',
+                status: 'FetchAbort'
+            }
+        } else {
+            throw {
+                message: e.message,
+                status: e.status
+            }
         }
     }
 };
