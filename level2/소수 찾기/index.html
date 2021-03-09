@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>소수 찾기</title>
+
+        <script>
+            function solution(numbers) {
+                var answer = 0;
+                let numbersArr = numbers.split('');
+                let permutaions = [];
+
+                const checkDecimal = (n) => {
+                    let check = true;
+
+                    for (let i = 2; i * i <= n; i++) {
+                        if (n % i === 0) {
+                            check = false;
+                            break;
+                        }
+                    }
+
+                    if (check && +n > 1) {
+                        permutaions.push(n);
+                    }
+                };
+
+                const permutaionsAdd = (arr, str) => {
+                    if (arr.length > 0) {
+                        for (let i = 0; i < arr.length; i++) {
+                            const copy = [...arr];
+                            copy.splice(i, 1);
+                            permutaionsAdd(copy, str + arr[i]);
+                        }
+                    }
+
+                    if (+str > 0) {
+                        checkDecimal(+str);
+                    }
+                }
+
+                permutaionsAdd(numbersArr, '');
+                permutaions = permutaions.filter((n, index) => permutaions.indexOf(n) === index);
+                answer = permutaions.length;
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
