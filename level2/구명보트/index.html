@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>구명보트</title>
+
+        <script>
+            function solution(people, limit) {
+                let answer = 0;
+
+                people.sort((a, b) => b - a);
+
+                let firstIndex = 0;
+                let secondIndex = people.length - 1;
+
+                while (firstIndex <= secondIndex) {
+                    const first = people[firstIndex];
+
+                    if (first <= limit / 2) {
+                        answer += Math.ceil((secondIndex - firstIndex + 1) / 2);
+                        break;
+                    }
+
+                    answer++;
+                    firstIndex++;
+                    if (first + people[secondIndex] <= limit) {
+                        secondIndex--;
+                    }
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
