@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>시저 암호</title>
+
+        <script>
+            function solution(s, n) {
+                let answer = '';
+
+                for (let i = 0; i < s.length; i++) {
+                    answer = answer + charAscii(s[i], n);
+                }
+
+                return answer;
+            }
+
+            function charAscii(s, n) {
+                if (s == ' ') return ' ';
+
+                const ascii = s.charCodeAt(0);
+                const code = ascii <= 90 ?
+                    (ascii + n > 90 ? 65 + (ascii + n - 91) : ascii + n) :
+                    (ascii + n > 122 ? 97 + (ascii + n - 123) : ascii + n);
+
+                return String.fromCharCode(code);
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
