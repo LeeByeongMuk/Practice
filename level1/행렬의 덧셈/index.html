@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>행렬의 덧셈</title>
+
+        <script>
+            function solution(arr1, arr2) {
+                let answer = arr1.reduce((acc, cur, index) => {
+                    let data = cur.reduce((acc2, cur2, index2) => {
+                        acc2[index2] = arr1[index][index2] + arr2[index][index2];
+                        return acc2;
+                    }, []);
+
+                    acc.push(data);
+                    return acc;
+                }, []);
+
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
