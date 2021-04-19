@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>괄호 회전하기</title>
+
+        <script>
+            function solution(s) {
+                let answer = 0;
+                let sArr = s.split('');
+
+                for (let i = 0; i < sArr.length; i++) {
+                    sArr.push(sArr.shift());
+
+                    if (check(sArr)) {
+                        answer++;
+                    }
+                }
+
+                return answer;
+            }
+
+            function check(arr) {
+                let checkArr = [];
+                const obj = {
+                    '[': ']',
+                    '(': ')',
+                    '{': '}'
+                };
+
+                for (let i = 0; i < arr.length; i++) {
+                    if (obj[checkArr[checkArr.length - 1]] === arr[i]) {
+                        checkArr.pop();
+                    } else {
+                        checkArr.push(arr[i]);
+                    }
+                }
+
+                return checkArr.length === 0;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
