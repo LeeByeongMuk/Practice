@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>멀쩡한 사각형</title>
+
+        <script>
+            function solution(w, h) {
+                const GCD = getGCD(w, h);
+                let answer = w * h - (w + h - GCD)
+
+                return answer;
+            }
+
+            function getGCD(w, h) {
+                let max = Math.max(w, h);
+                let min = Math.min(w, h);
+                const remainder = max % min;
+
+                if (remainder === 0) {
+                    return min;
+                }
+
+                return getGCD(min, remainder);
+            }
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
