@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>스킬트리</title>
+
+        <script>
+            function solution(skill, skill_trees) {
+                let answer = skill_trees.length;
+
+                skill_trees = skill_trees.map(tree => {
+                    return tree.split('').filter((item) => skill.indexOf(item) !== -1).join('');
+                });
+
+                for (let i = 0; i < skill_trees.length; i++) {
+                    for (let s = 0; s < skill_trees[i].length; s++) {
+                        if (skill[s] !== skill_trees[i][s]) {
+                            answer--;
+                            break;
+                        }
+                    }
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
