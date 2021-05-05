@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>짝지어 제거하기</title>
+
+        <script>
+            function solution(s)
+            {
+                let arr = [...s];
+                let stack = [];
+
+                while (arr.length > 0) {
+                    if (stack.length > arr.length) {
+                        break;
+                    }
+
+                    if (stack[stack.length - 1] === arr[arr.length - 1]) {
+                        stack.pop();
+                    } else {
+                        stack.push(arr[arr.length - 1]);
+                    }
+
+                    arr.pop();
+                }
+
+                return stack.length === 0 ? 1 : 0;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
