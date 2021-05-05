@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>올바른 괄호</title>
+
+        <script>
+            function solution(s){
+                let answer = true;
+                let arr = [];
+                s = s.split('');
+
+                if (s.filter(e => e === '(').length !== s.filter(e => e === ')').length) {
+                    return false;
+                }
+
+                for (let i = 0; i < s.length; i++) {
+                    if (s[i] === '(') {
+                        arr.push(s[i]);
+                    } else {
+                        if (arr[arr.length - 1] === ')') {
+                            arr.push(s[i]);
+                        } else {
+                            arr.pop();
+                        }
+                    }
+                }
+
+                if (arr.length > 0) {
+                    answer = false;
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
