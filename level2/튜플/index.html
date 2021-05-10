@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>튜플</title>
+
+        <script>
+            function solution(s) {
+                const regex = /[0-9]+/g;
+                let checkObj = s.match(regex).reduce((acc, cur) => {
+                    acc[cur] = (acc[cur] || 0) + 1;
+                    return acc;
+                }, {});
+                let answer = Array(Object.keys(checkObj).length).fill(0);
+
+                for (const [key, value] of Object.entries(checkObj)) {
+                    answer[value - 1] = Number(key);
+                }
+
+                return answer.reverse();
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
