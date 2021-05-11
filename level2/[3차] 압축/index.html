@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>[3차] 압축</title>
+
+        <script>
+            function solution(msg) {
+                let answer = [];
+                let msgArr = msg.split('');
+                let dArr = Array.from({length: 26}, (_, i) => String.fromCharCode('A'.charCodeAt(0) + i));
+
+                while (msgArr.length > 0) {
+                    let data = msgArr.shift();
+
+                    while (true) {
+                        let checkData = data + msgArr[0];
+
+                        if (dArr.indexOf(checkData) === -1) {
+                            dArr.push(checkData);
+                            answer.push(dArr.indexOf(data) + 1);
+                            break;
+                        } else {
+                            data = data + msgArr.shift();
+                        }
+                    }
+                }
+
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
