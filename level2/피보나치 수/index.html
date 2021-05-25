@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>피보나치 수</title>
+
+        <script>
+            function solution(n) {
+                let answer = 0;
+                let fibonacci = [0, 1];
+
+                if (n < 2) {
+                    answer = fibonacci[n];
+                } else {
+                    for (let i = 2; i <= n; i++) {
+                        fibonacci.push((fibonacci[i - 1] + fibonacci[i - 2]) % 1234567);
+                    }
+
+                    answer = fibonacci[n];
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
