@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s) {
+        let answer;
+        const length = s.length;
+        const mid = Math.floor(length / 2);
+
+        if (length % 2 === 0) {
+            answer = s.substr(mid - 1, 2);
+        } else {
+            answer = s[mid];
+        }
+
+        return answer;
+    }
+
+    function solution2(s) {
+        let answer;
+        const length = s.length;
+        const idx = length / 2;
+
+        if (length % 2 === 0) {
+            answer = s[idx - 1] + s[idx];
+        } else {
+            answer = s[Math.floor(idx)];
+        }
+
+        return answer;
+    }
+
+
+    console.log(solution("mansogod"));
+</script>
+</body>
+</html>
