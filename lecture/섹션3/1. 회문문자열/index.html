@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s) {
+        let answer = 'YES';
+        const length = s.length;
+        s = s.toLowerCase();
+
+        for (let i = 0; i < Math.ceil(length / 2); i++) {
+            if (s[i] !== s[length - i - 1]) {
+                answer = 'NO';
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+    function solution2(s) {
+        let answer = 'YES';
+        s = s.toLowerCase();
+
+        if (s.split('').reverse().join('') !== s) {
+            answer = 'No';
+        }
+
+        return answer;
+    }
+
+    let str = 'goqoG';
+    console.log(solution2(str));
+</script>
+</body>
+</html>
+
+
+
