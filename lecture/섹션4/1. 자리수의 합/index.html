@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(n, arr) {
+        let answer = 0;
+        let max = 0;
+
+        for (let num of arr) {
+            const sum = num.toString().split('').reduce((acc, cur) => {
+                return acc + parseInt(cur);
+            }, 0);
+
+            if (sum > max) {
+                answer = num;
+                max = sum;
+            } else if (sum === max) {
+                if (num > answer) answer = num;
+            }
+        }
+
+
+        return answer;
+    }
+
+    let arr = [128, 460, 603, 40, 521, 137, 123];
+    console.log(solution(7, arr));
+</script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(m, product) {
+        let answer = 0;
+        product = product.sort((a, b) => {
+            const n = a[0] + a[1];
+            const m = b[0] + b[1];
+
+            if (n === m) {
+                return a[0] - b[0];
+            } else {
+                return n - m;
+            }
+        });
+
+        for (let i = 0; i < product.length; i++) {
+            let money = m - (product[i][0] / 2 + product[i][1]);
+            let count = 1;
+
+            for (let j = 0; j < product.length; j++) {
+                const price = product[j][0] + product[j][1];
+
+                if (i !== j && price > money) {
+                    break;
+                }
+
+                if (i !== j && price <= money) {
+                    money -= price;
+                    count++;
+                }
+            }
+
+            if (answer < count) answer = count;
+        }
+
+
+        return answer;
+    }
+
+    function solution2(m, product) {
+        let answer = 0;
+        product = product.sort((a, b) => {
+            const n = a[0] + a[1];
+            const m = b[0] + b[1];
+
+            if (n === m) {
+                return a[0] - b[0];
+            } else {
+                return n - m;
+            }
+        });
+
+        let total = 0;
+        let isSale = false;
+
+        for (let i = 0 ; i < product.length; i++) {
+            const current = product[i][0] + product[i][1];
+            const half = current / 2;
+
+            if (total + current > m) {
+                if (total + half > m || isSale) {
+                    break;
+                } else {
+                    total += half;
+                    isSale = true;
+                }
+            } else {
+                total += current;
+            }
+
+            answer++;
+        }
+
+        return answer;
+    }
+
+    let arr = [[6, 6], [2, 2], [4, 3], [4, 5], [10, 3]];
+    console.log(solution(28, arr));
+</script>
+</body>
+</html>
