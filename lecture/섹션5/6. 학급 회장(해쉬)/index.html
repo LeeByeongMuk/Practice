@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        function solution(s){
+            let answer, max = 0;
+            let sh = new Map();
+
+            for (let str of s) {
+                const value = sh.get(str);
+
+                if (value) {
+                    sh.set(str, value + 1);
+                } else {
+                    sh.set(str, 1);
+                }
+            }
+
+            sh.forEach((item, key) => {
+                if (item > max) {
+                    max = item;
+                    answer = key;
+                }
+            });
+
+            return answer;
+        }
+
+        function solution2(s){
+            let answer, max = 0;
+            let obj = {};
+
+            for (let str of s) {
+                if (obj[str]) {
+                    obj[str] += 1;
+                } else {
+                    obj[str] = 1;
+                }
+            }
+
+            for (let [v, i] of Object.entries(obj)) {
+                if (i > max) {
+                    max = i;
+                    answer = v;
+                }
+            }
+
+            return answer;
+        }
+
+        let str="BACBACCACCBDEDE";
+        console.log(solution(str));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
