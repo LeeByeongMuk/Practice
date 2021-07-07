@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function count(stable, dist) {
+        let cnt = 1;
+        let end = stable[0];
+        for (let s of stable) {
+            if (s - end >= dist) {
+                cnt++;
+                end = s;
+            }
+        }
+
+        return cnt;
+    }
+
+    function solution(c, stable) {
+        let answer;
+
+        stable.sort((a, b) => a - b);
+        let lt = 1, rt = stable[stable.length - 1];
+
+        while (lt <= rt) {
+            const mid = Math.floor((lt + rt) / 2);
+            console.log(count(stable, mid));
+            if (count(stable, mid) >= c) {
+                lt = mid + 1;
+                answer = mid;
+            } else {
+                rt = mid - 1;
+            }
+        }
+        
+        return answer;
+    }
+
+    let arr = [1, 2, 8, 4, 9];
+    console.log(solution(3, arr));
+</script>
+</body>
+</html>
+

@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(arr) {
+        let answer = [...arr];
+
+        for (let i = 0; i < arr.length - 1; i++) {
+            let idx = i;
+            for (let j = i + 1; j < arr.length; j++) {
+                if (answer[idx] > answer[j]) {
+                    idx = j;
+                }
+            }
+
+            [answer[i], answer[idx]] = [answer[idx], answer[i]];
+        }
+
+        return answer;
+    }
+
+    function solution2(arr) {
+        let answer = [...arr];
+
+        for (let i = 0; i < arr.length; i++) {
+            const copy = [...answer].slice(i + 1, arr.length);
+            const current = answer[i];
+            const min = Math.min(...copy);
+
+            if (current > min) {
+                answer[answer.indexOf(min)] = current;
+                answer[i] = min;
+            }
+        }
+
+        return answer;
+    }
+
+    let arr = [13, 5, 11, 7, 23, 15];
+    console.log(solution(arr));
+</script>
+</body>
+</html>
