@@ -6,31 +6,31 @@
 <body>
 <script>
     function count(songs, capacity) {
-        let cnt = 1, sum = 0;
+        let cnt = 1,
+            sum = 0;
 
-        songs.forEach((item) => {
-            if (sum + item > capacity) {
+        for (let s of songs) {
+            if (sum + s > capacity) {
+                sum = s;
                 cnt++;
-                sum = item;
             } else {
-                sum += item;
+                sum += s;
             }
-        });
+        }
 
         return cnt;
     }
 
     function solution(m, songs) {
         let answer;
-        let lt = Math.max(...songs);
-        let rt = songs.reduce((acc, cur) => acc + cur);
+        let lt = Math.min(...songs),
+            rt = songs.reduce((acc, cur) => acc + cur, 0);
 
         while (lt <= rt) {
             const mid = Math.floor((lt + rt) / 2);
-
             if (count(songs, mid) <= m) {
-                answer = mid;
                 rt = mid - 1;
+                answer = mid;
             } else {
                 lt = mid + 1;
             }

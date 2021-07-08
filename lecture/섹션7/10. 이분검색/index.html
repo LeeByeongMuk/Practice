@@ -11,8 +11,8 @@
         let lt = 0, rt = arr.length - 1;
 
         while (lt <= rt) {
-            let mid = parseInt((lt + rt) / 2);
-            if (arr[mid] == target) {
+            const mid = Math.floor((lt + rt) / 2);
+            if (arr[mid] === target) {
                 answer = mid + 1;
                 break;
             } else if (arr[mid] > target) {

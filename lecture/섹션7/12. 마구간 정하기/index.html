@@ -5,13 +5,13 @@
 </head>
 <body>
 <script>
-    function count(stable, dist) {
-        let cnt = 1;
-        let end = stable[0];
+    function count(stable, num) {
+        let cnt = 1, ep = stable[0];
+
         for (let s of stable) {
-            if (s - end >= dist) {
+            if (s - ep >= num) {
                 cnt++;
-                end = s;
+                ep = s;
             }
         }
 
@@ -20,21 +20,20 @@
 
     function solution(c, stable) {
         let answer;
-
         stable.sort((a, b) => a - b);
         let lt = 1, rt = stable[stable.length - 1];
 
         while (lt <= rt) {
             const mid = Math.floor((lt + rt) / 2);
-            console.log(count(stable, mid));
+
             if (count(stable, mid) >= c) {
-                lt = mid + 1;
                 answer = mid;
+                lt = mid + 1;
             } else {
                 rt = mid - 1;
             }
         }
-        
+
         return answer;
     }
 
