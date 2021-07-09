@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(n) {
+        let answer = [];
+        let chk = Array(n).fill(0);
+
+        function DFS(v) {
+            if (v === n + 1) {
+                let tmp = '';
+                for (let i = 0; i < chk.length; i++) {
+                    if (chk[i]) tmp += i + ' ';
+                }
+                if (tmp) answer.push(tmp.trim());
+                return;
+            } else {
+                chk[v] = 1;
+                DFS(v + 1);
+                chk[v] = 0;
+                DFS(v + 1);
+            }
+        }
+
+        DFS(1);
+
+        return answer;
+    }
+
+    function solution2(n) {
+        let answer = [];
+
+        function DFS(v, arr) {
+            if (v === n + 1) return;
+            const copy = [...arr];
+            copy.push(v);
+            DFS(v+1, copy);
+            answer.push(copy);
+            DFS(v+1, arr);
+        }
+
+        DFS(1, []);
+
+        return answer;
+    }
+
+    console.log(solution(3));
+</script>
+</body>
+</html>
