@@ -1,0 +1,71 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(str1, str2) {
+        let answer = 'YES';
+        let sH = new Map();
+
+        for (let str of str1) {
+            if (sH.has(str)) {
+                sH.set(str, sH.get(str) + 1);
+            } else {
+                sH.set(str, 1);
+            }
+        }
+
+        for (let str of str2) {
+            if (!sH.has(str) || sH.get(str) === 0) {
+                answer = 'NO';
+                break;
+            } else {
+                sH.set(str, sH.get(str) - 1);
+            }
+        }
+
+        return answer;
+    }
+
+    function solution2(str1, str2) {
+        let answer = 'YES';
+        let aSH = new Map();
+        let bSH = new Map();
+
+        for (let i = 0; i < str1.length; i++) {
+            const a = str1[i];
+            const aValue = aSH.get(str1[i]);
+            if (aValue) {
+                aSH.set(a, aValue + 1);
+            } else {
+                aSH.set(a, 1);
+            }
+
+            const b = str2[i];
+            const bValue = bSH.get(str2[i]);
+            if (bValue) {
+                bSH.set(b, bValue + 1);
+            } else {
+                bSH.set(b, 1);
+            }
+        }
+
+        for (let [key, value] of aSH) {
+            if (value !== bSH.get(key)) {
+                answer = 'NO';
+                break;
+            }
+        }
+
+        return answer;
+    }
+
+    let a = "AbaAeCe";
+    let b = "baeeACA";
+    console.log(solution(a, b));
+    console.log(solution('abaCC', 'Caaab'));
+</script>
+</body>
+</html>

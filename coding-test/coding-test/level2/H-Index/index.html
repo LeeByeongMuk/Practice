@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>H-Index</title>
+
+        <script>
+            function solution(citations) {
+                let answer = 0;
+                const max = citations.length;
+                let i = max;
+
+                while (true) {
+                    let length = citations.filter(citation => citation >= i).length;
+
+                    if (length >= i) {
+                        answer = i;
+                        break;
+                    }
+
+                    i--;
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

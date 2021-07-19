@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>정수 내림차순으로 배치하기</title>
+
+        <script>
+            function solution(n) {
+                var answer = String(n).split('').sort((a, b) => b - a).reduce((acc, cur) => acc + cur, '');
+
+                return Number(answer);
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

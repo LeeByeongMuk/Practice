@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>다음 큰 숫자</title>
+
+        <script>
+            function solution(n) {
+                let answer = n;
+                const check = checkNumber(n);
+
+                while (true) {
+                    answer += 1;
+
+                    if (check === checkNumber(answer)) break;
+                }
+
+                return answer;
+            }
+
+            function checkNumber(n) {
+                return n.toString(2).split('').filter(e => Number(e) === 1).length;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

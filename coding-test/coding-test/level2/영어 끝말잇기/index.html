@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>영어 끝말잇기</title>
+
+        <script>
+            function solution(n, words) {
+                let answer = [2, 1];
+                let arr = [];
+                let prev = words.shift();
+                arr.push(prev);
+
+                while (words.length > 0) {
+                    const current = words.shift();
+                    let prev = arr[arr.length - 1];
+
+                    if (prev[prev.length - 1] === current[0] && arr.indexOf(current) === -1) {
+                        if (words.length === 0) {
+                            answer = [0, 0];
+                            continue;
+                        }
+
+                        if (answer[0] === n) {
+                            answer[0] = 1;
+                            answer[1] += 1;
+                        } else {
+                            answer[0] += 1;
+                        }
+
+                        arr.push(current);
+                    } else {
+                        break;
+                    }
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

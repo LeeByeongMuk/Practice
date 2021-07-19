@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>실패율</title>
+
+        <script>
+            function solution(N, stages) {
+                let data = [];
+
+                for (let i = 1; i <= N; i++) {
+                    let user = stages.filter(n => n >= i);
+                    let failUser = user.filter(n => n <= i).length;
+
+                    data.push({
+                        stage: i,
+                        fail: failUser / user.length
+                    });
+                }
+
+                data.sort((a, b) => {
+                    if (a.fail === b.fail) {
+                        return a.stage - b.stage;
+                    } else {
+                        return b.fail - a.fail;
+                    }
+                });
+
+                let answer = data.map((item) => item.stage);
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

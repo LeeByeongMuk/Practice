@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>예상 대진표</title>
+
+        <script>
+            function solution(n,a,b)
+            {
+                let answer = 1;
+
+
+                while (n > 1) {
+                    if (Math.abs(a - b) === 1 && Math.max(a, b) % 2 === 0) {
+                        break;
+                    } else {
+                        if (a > 1) {
+                            a = formatEven(a);
+                            a /= 2;
+                        }
+
+                        if (b > 1) {
+                            b = formatEven(b);
+                            b /= 2;
+                        }
+
+                        n /= 2;
+                        answer += 1;
+                    }
+                }
+
+                return answer;
+            }
+
+            function formatEven(num) {
+                return num % 2 === 0 ? num : num + 1;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

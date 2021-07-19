@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>N개의 최소공배수</title>
+
+        <script>
+            function solution(arr) {
+                let division = [...arr].sort((a, b) => a - b);
+
+                while (division.length > 1) {
+                    let first = division.shift();
+                    let second = division.shift();
+
+                    division.push(lcm(first, second));
+                }
+
+                return division[0];
+            }
+
+            function lcm(minNum, maxNum) {
+                return minNum * maxNum / gcd(minNum, maxNum);
+            }
+
+            function gcd(minNum, maxNum) {
+                const remainder = maxNum % minNum;
+                return remainder === 0 ? minNum : gcd(remainder, minNum);
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

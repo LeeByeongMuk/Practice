@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(s, t) {
+        let answer = [];
+        let stack = 1000;
+
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] === t) {
+                stack = 0;
+            } else {
+                stack++;
+            }
+
+            answer.push(stack);
+        }
+
+        stack = 1000;
+        for (let i = s.length - 1; i >= 0; i--) {
+            if (s[i] === t) {
+                stack = 0;
+            } else {
+                stack++;
+                answer[i] = Math.min(answer[i], stack);
+            }
+        }
+
+        return answer;
+    }
+
+    function solution2(s, t) {
+        let answer = [];
+
+        for (let i = 0 ; i < s.length; i++) {
+            if (s[i] === t) {
+                answer.push(0);
+                continue;
+            }
+
+            let stack = 1;
+            while (true) {
+                if (s[i - stack] === t || s[i + stack] === t) {
+                    answer.push(stack);
+                    break;
+                }
+
+                stack++;
+            }
+        }
+
+        return answer;
+    }
+
+    let str = "teachermode";
+    console.log(solution(str, 'e'));
+</script>
+</body>
+</html>

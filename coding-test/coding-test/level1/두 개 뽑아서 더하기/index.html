@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>두 개 뽑아서 더하기</title>
+
+        <script>
+            function solution(numbers) {
+                var answer = [];
+                var check = 0;
+
+                for (let i = 0; i < numbers.length; i++) {
+                    while (check < numbers.length - 1) {
+                        check++;
+                        answer.push(numbers[i] + numbers[check]);
+                    }
+
+                    check = i + 1;
+                }
+
+                answer = answer.filter((item, index) => {
+                    return answer.indexOf(item) === index;
+                }).sort((a, b) => a - b);
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>큰 수 만들기</title>
+
+        <script>
+            function solution(number, k) {
+                let arr = [];
+                let answer = '';
+
+                for (let i = 0; i < number.length; i++) {
+                    const value = number[i];
+
+                    while (true) {
+                        if (k === 0) {
+                            break;
+                        }
+
+                        if (value > arr[arr.length - 1]) {
+                            arr.pop();
+                            k--;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    arr.push(value);
+                }
+
+                arr.splice(number.length - k, k);
+                answer = arr.join('');
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

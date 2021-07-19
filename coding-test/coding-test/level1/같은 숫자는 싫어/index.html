@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>같은 숫자는 싫어</title>
+
+        <script>
+            function solution(arr) {
+                var answer = arr.filter((item, index) => {
+                    return arr[index] !== arr[index + 1];
+                });
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>타겟 넘버</title>
+
+        <script>
+            function solution(numbers, target) {
+                let answer = 0;
+
+                const dfs = (arr, index) => {
+                    if (index === numbers.length) {
+                        const total = arr.reduce((acc, cur) => acc + cur);
+
+                        if (total === target) {
+                            answer++;
+                        }
+                    } else {
+                        arr[index] *= 1;
+                        dfs(arr, index + 1);
+
+                        arr[index] *= -1;
+                        dfs(arr, index + 1);
+                    }
+                };
+
+                dfs(numbers, 0);
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

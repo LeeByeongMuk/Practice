@@ -1,0 +1,37 @@
+# 문제
+https://programmers.co.kr/learn/courses/30/lessons/49994?language=javascript#
+
+# 참고 자료
+
+# 답
+    function solution(dirs) {
+        let arr = [];
+        let location = [0, 0];
+        let event = {
+            U: [0, 1],
+            D: [0, -1],
+            L: [-1, 0],
+            R: [1, 0]
+        };
+
+        for (let i = 0; i < dirs.length; i++) {
+            let load = [`${location[0]}${location[1]}`];
+            const current = event[dirs[i]];
+
+            if (Math.abs(location[0] + current[0]) > 5 ||
+                Math.abs(location[1] + current[1]) > 5) {
+                continue;
+            }
+
+            location[0] += current[0];
+            location[1] += current[1];
+            load.push(`${location[0]}${location[1]}`);
+            load.sort();
+
+            arr.push(`${load[0]}${load[1]}`);
+        }
+
+        let answer = arr.filter((item, index) => arr.indexOf(item) === index).length;
+
+        return answer;
+    }

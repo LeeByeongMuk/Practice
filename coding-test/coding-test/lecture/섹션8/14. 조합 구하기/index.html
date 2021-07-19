@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(n, m) {
+        let answer = [];
+        let tmp = [];
+
+        function DFS(L, s) {
+            if (L === m) {
+                answer.push([...tmp]);
+            } else {
+                for (let i = s; i <= n; i++) {
+                    tmp.push(i);
+                    DFS(L + 1, i + 1);
+                    tmp.pop();
+                }
+            }
+        }
+
+        DFS(0, 1);
+        return answer;
+    }
+
+    function solution2(n, m) {
+        let answer = [];
+
+        function DFS(L, num, sum) {
+            if (L === m) {
+                answer.push(sum.trim());
+            } else {
+                for (let i = num; i < n; i++) {
+                    DFS(L + 1, i + 1, sum + ' ' + (i + 1));
+                }
+
+            }
+        }
+
+        DFS(0, 0, '');
+        return answer;
+    }
+
+    console.log(solution(4, 2));
+</script>
+</body>
+</html>

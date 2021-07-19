@@ -1,0 +1,18 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+<body>
+<script>
+    function solution(a, b, c) {
+        const max = Math.max(a, b, c);
+        return (a + b + c - max) > max ? 'yes' : 'no';
+    }
+
+    console.log(solution(6, 7, 11));
+    console.log(solution(6, 7, 12));
+    console.log(solution(13, 33, 17));
+</script>
+</body>
+</html>

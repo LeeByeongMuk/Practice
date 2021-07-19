@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>JadenCase 문자열 만들기</title>
+
+        <script>
+            function solution(s) {
+                return s.toLowerCase().split(' ').map(item => {
+                    return item.slice(0, 1).toUpperCase() + item.slice(1);
+                }).join(' ');
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

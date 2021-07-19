@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>[1차]비밀지도</title>
+
+        <script>
+            function solution(n, arr1, arr2) {
+                let answer = [];
+
+                for (let i = 0; i < n; i++) {
+                    let data = convertBNS(n, (arr1[i] | arr2[i]));
+                    data = data.replace(/1/g, '#').replace(/0/g, ' ');
+
+                    answer.push(data);
+                }
+
+                return answer;
+                }
+
+                function convertBNS(n, data) {
+                return data.toString(2).padStart(n, '0');
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

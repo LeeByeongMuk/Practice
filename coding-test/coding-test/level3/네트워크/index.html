@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(n, computers) {
+        let answer = 0;
+        let chk = Array.from({length: n}, () => false);
+
+        function DFS(idx) {
+            chk[idx] = true;
+            for (let i = 0; i < n; i++) {
+                if (!chk[i] && computers[idx][i] === 1) {
+                    DFS(i);
+                }
+            }
+        }
+
+        for (let i = 0; i < n; i++) {
+            if (!chk[i]) {
+                answer++;
+                DFS(i);
+            }
+        }
+
+        return answer;
+    }
+
+    console.log(solution(3, [[1, 1, 0], [1, 1, 0], [0, 0, 1]]));
+</script>
+
+</body>
+</html>

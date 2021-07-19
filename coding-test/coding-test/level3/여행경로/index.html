@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function solution(tickets) {
+        let answer = [];
+        const n = tickets.length;
+        let arr = [];
+        arr.push('ICN');
+
+        function DFS(L) {
+            if (L > n) return;
+            if (L === n) {
+                if (!answer.length || answer.join('') > arr.join('')) {
+                    answer = [...arr]
+                }
+            } else {
+                tickets.forEach((ticket, i) => {
+                    if (ticket.length > 0 && arr[arr.length - 1] === ticket[0]) {
+                        tickets[i] = [];
+                        arr.push(ticket[1]);
+                        DFS(L+1);
+                        tickets[i] = ticket;
+                        arr.pop();
+                    }
+                });
+            }
+        }
+
+        DFS(0);
+        return answer;
+    }
+
+    console.log(solution([["ICN", "JFK"], ["HND", "IAD"], ["JFK", "HND"]]));
+    console.log(solution([["ICN", "SFO"], ["ICN", "ATL"], ["SFO", "ATL"], ["ATL", "ICN"], ["ATL","SFO"]]));
+    console.log(solution([['ICN','AAA'],['ICN','AAA'],['ICN','AAA'],['AAA','ICN'],['AAA','ICN']]));
+</script>
+
+</body>
+</html>

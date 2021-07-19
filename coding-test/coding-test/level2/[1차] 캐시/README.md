@@ -1,0 +1,41 @@
+# 문제
+https://programmers.co.kr/learn/courses/30/lessons/17680?language=javascript
+
+# 참고 자료
+
+# 답
+    function solution(cacheSize, cities) {
+        let answer = 0;
+        let arr = [];
+
+        if (cacheSize === 0) {
+            return cities.length * 5;
+        }
+
+        while (cities.length > 0) {
+            const city = cities.shift().toLowerCase();
+            let checkIdx = arr.findIndex(e => e.city === city);
+
+            if (checkIdx === -1) {
+                if (arr.length === cacheSize) {
+                    arr.shift();
+                }
+
+                arr.push({
+                    city: city,
+                    count: 0
+                });
+
+                answer += 5;
+            } else {
+                arr.forEach((item, index) => {
+                    const count = checkIdx === index ? 0 : item.count + 1;
+                    arr[index].count = count;
+                });
+
+                answer += 1;
+            }
+        }
+
+        return answer;
+    }

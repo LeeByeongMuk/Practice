@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>예산</title>
+
+        <script>
+            function solution(d, budget) {
+                let answer = 0;
+                d.sort((a, b) => a - b);
+
+
+                while (budget > 0) {
+                    budget -= d.shift();
+
+                    if (budget >= 0) {
+                        answer++;
+                    }
+                }
+
+                return answer;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

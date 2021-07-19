@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <title>카펫</title>
+
+        <script>
+            function solution(brown, yellow) {
+                const total = brown + yellow;
+                let answer = Array.from({length: Math.floor(total / 2)}, (v, i) => i + 1);
+                answer.push(total);
+                answer = answer.filter(n => total % n === 0);
+                answer = answer.filter(n => formula(brown, n, total));
+                answer = answer.sort((a, b) => b - a);
+
+                if (answer.length === 1) {
+                    answer[1] = answer[0];
+                }
+
+                return answer;
+            }
+
+            function formula(brown, number, total) {
+                const yellow = (brown + 4) / 2 - number;
+
+                return total === number * yellow;
+            }
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

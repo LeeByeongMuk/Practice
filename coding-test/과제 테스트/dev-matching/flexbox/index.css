@@ -1,0 +1,19 @@
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: stretch;
+}
+
+article{
+    width: 250px;
+    height: 300px;
+    margin: 5% 0 0 5%;
+    border: 1px solid black;
+    box-sizing: border-box;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+
+}

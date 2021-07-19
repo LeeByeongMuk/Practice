@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(n, money) {
+        let answer;
+        let dy = Array(n + 1).fill(0);
+
+        for (let i = 0; i < money.length; i++) {
+            dy[money[i]] += 1;
+
+            for (let j = money[i] + 1; j <= n; j++) {
+                dy[j] += dy[j - money[i]];
+            }
+        }
+
+        answer = dy[n] % 1000000007;
+        return answer;
+    }
+
+    console.log(solution(5, [1,2,5]));
+</script>
+
+</body>
+</html>
