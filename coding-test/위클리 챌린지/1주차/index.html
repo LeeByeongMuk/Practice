@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function solution(price, money, count) {
+        let answer = 0;
+        let total = 0;
+
+        for (let i = 0; i < count; i++) {
+            total += price + (price * i);
+        }
+
+        if (money < total) {
+            answer = total - money;
+        }
+
+        return answer;
+    }
+
+    console.log(solution(3, 20, 4));
+</script>
+
+</body>
+</html>
