@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>2개 이하로 다른 비트</title>
+
+    <script>
+        function solution(numbers) {
+            let answer = [];
+
+            for (let n of numbers) {
+                if (n % 2 === 0) {
+                    answer.push(n + 1);
+                } else {
+                    const bit = n.toString(2);
+                    const zero = ('0' + n.toString(2)).lastIndexOf('0');
+                    const oneCnt = bit.length - (zero > 0 ? zero : 0);
+                    answer.push(n + 2 ** (oneCnt - 1));
+                }
+            }
+
+            return answer;
+        }
+
+        console.log(solution([2, 7]));
+    </script>
+</head>
+<body>
+</body>
+</html>
