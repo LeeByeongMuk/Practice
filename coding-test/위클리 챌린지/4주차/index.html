@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function solution(table, languages, preference) {
+        let answer = '';
+        let maxScore = 0;
+        let language = [];
+
+        for (let i = 0; i < table.length; i++) {
+            const arr = table[i].split(' ');
+            let score = 0;
+
+            for (let j = 0; j < languages.length; j++) {
+                const cur = languages[j];
+                const check = arr.indexOf(cur);
+                if (check !== -1) score += (arr.length - check) * preference[j];
+            }
+
+            if (score > maxScore) {
+                maxScore = score;
+                language = [arr[0]];
+            } else if (score === maxScore) {
+                language.push(arr[0]);
+            }
+        }
+
+        if (language.length > 1) language.sort();
+        answer = language[0];
+        return answer;
+    }
+
+    console.log(solution([
+            "SI JAVA JAVASCRIPT SQL PYTHON C#",
+            "CONTENTS JAVASCRIPT JAVA PYTHON SQL C++",
+            "HARDWARE C C++ PYTHON JAVA JAVASCRIPT",
+            "PORTAL JAVA JAVASCRIPT PYTHON KOTLIN PHP",
+            "GAME C++ C# JAVASCRIPT C JAVA"],
+        ["PYTHON", "C++", "SQL"],
+        [7, 5, 5]
+    ));
+
+    console.log(solution(["SI JAVA JAVASCRIPT SQL PYTHON C#", "CONTENTS JAVASCRIPT JAVA PYTHON SQL C++", "HARDWARE C C++ PYTHON JAVA JAVASCRIPT", "PORTAL JAVA JAVASCRIPT PYTHON KOTLIN PHP", "GAME C++ C# JAVASCRIPT C JAVA"],
+        ["JAVA", "JAVASCRIPT"],
+        [7, 5]
+    ));
+</script>
+
+</body>
+</html>
