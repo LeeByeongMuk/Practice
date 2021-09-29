@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+</head>
+<body>
+<div>
+    <p>
+        Clicked: <span id="value">0</span> times
+        <button id="increment">+</button>
+        <button id="decrement">-</button>
+        <button id="incrementIfOdd">Increment if odd</button>
+        <button id="incrementAsync">Increment async</button>
+    </p>
+</div>
+
+<script>
+    // action
+    const increment = 'INCREMENT';
+    const decrement = 'DECREMENT';
+    const actionIncrement = {
+        type: increment
+    };
+    const actionDecrement = {
+        type: decrement
+    };
+
+    // reducer
+    function counter(state, action) {
+        if (typeof state === "undefined") return 0;
+
+        switch (action.type) {
+            case increment:
+                return state + 1;
+            case decrement:
+                return state - 1;
+            default:
+                return state;
+        }
+    }
+
+    // store
+    const store = Redux.createStore(counter);
+    const valEl = document.getElementById('value');
+
+    console.log(store);
+
+    function render() {
+        valEl.innerHTML = store.getState().toString();
+    }
+    render();
+
+    // store 변경시 호출
+    store.subscribe(() => {
+        console.log(store.getState());
+        render();
+    });
+
+    // dispatcher
+    document.getElementById('increment')
+        .addEventListener('click', () => {
+            store.dispatch(actionIncrement);
+        });
+
+    document.getElementById('decrement')
+        .addEventListener('click', () => {
+            store.dispatch(actionDecrement);
+        });
+
+    document.getElementById('incrementIfOdd')
+        .addEventListener('click', () => {
+            if (store.getState() % 2 !== 0) {
+                store.dispatch(actionIncrement);
+            }
+        });
+
+    document.getElementById('incrementAsync')
+        .addEventListener('click', () => {
+            setTimeout(() => {
+                store.dispatch(actionIncrement);
+            }, 500);
+        });
+</script>
+
+</body>
+</html>
