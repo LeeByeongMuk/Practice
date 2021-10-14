@@ -1,5 +1,5 @@
 # 문제
-https://leetcode.com/problems/two-sum/
+https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 
 # 26. Remove Duplicates from Sorted Array
 
