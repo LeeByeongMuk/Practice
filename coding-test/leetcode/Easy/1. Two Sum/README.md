@@ -1,6 +1,8 @@
 # 문제
 https://leetcode.com/problems/two-sum/
 
+# 1. Two Sum
+
 ## 1차 풀이 답
 ```
 var twoSum = function(nums, target) {
