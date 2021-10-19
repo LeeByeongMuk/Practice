@@ -4,7 +4,7 @@ https://leetcode.com/problems/palindrome-number/
 # 9. Palindrome Number
 
 ## 1차 풀이 답
-```
+``` javascript
 var isPalindrome = function(x) {
     let result = true;
     let s = x.toString().split('');
@@ -24,7 +24,7 @@ var isPalindrome = function(x) {
 > 시간 복잡도 o(n)
 
 ## 2차 풀이 답
-```
+``` javascript
 var isPalindrome = function(x) {
     const s = x.toString();
     const r = s.split('').reverse().join('');

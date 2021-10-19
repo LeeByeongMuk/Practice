@@ -4,7 +4,7 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 21. Merge Two Sorted Lists
 
 ## 1차 풀이 답
-```
+``` javascript
 function ListNode(val = null, next = null) {
     this.val = val;
     this.next = next;
@@ -64,7 +64,7 @@ var mergeTwoLists = function(l1, l2) {
 1차 풀이는 Linked List 직접 구현하여 작성
 
 ## 2차 풀이 답
-```
+``` javascript
 var mergeTwoLists = function(l1, l2) {
     let list;
     

@@ -4,7 +4,7 @@ https://leetcode.com/problems/remove-element/
 # 27. Remove Element
 
 ## 1차 풀이 답
-```
+``` javascript
 var removeElement = function(nums, val) {
     let lt = 0;
     let rt = nums.length - 1;
@@ -30,7 +30,7 @@ var removeElement = function(nums, val) {
 <br>
 
 ## 2차 풀이 답
-```
+``` javascript
 var removeElement = function(nums, val) {
     let p = 0;
     

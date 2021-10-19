@@ -4,7 +4,7 @@ https://leetcode.com/problems/valid-parentheses/
 # 20. Valid Parentheses
 
 ## 1차 풀이 답
-```
+``` javascript
 var isValid = function(s) {
     const obj = {
         ')': '(',
@@ -28,7 +28,7 @@ var isValid = function(s) {
 > 시간 복잡도 o(n)
 
 ## 2차 풀이 답
-```
+``` javascript
 var isValid = function(s) {
     const map = new Map([
         [')', '('],
