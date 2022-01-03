@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react';
 
+import Select from "./component/Select";
+
 function App() {
     const [pageName, setPageName] = useState('');
+    const [selected, setSelected] = useState('2');
+
 
     useEffect(() => {
         window.onpopstate = (event) => {
@@ -26,6 +30,8 @@ function App() {
             {!pageName && <Home/>}
             {pageName === 'page1' && <Page1/>}
             {pageName === 'page2' && <Page2/>}
+
+            <Select value={selected} setSelected={setSelected} />
         </div>
     );
 }
