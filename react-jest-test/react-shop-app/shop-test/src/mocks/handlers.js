@@ -4,7 +4,7 @@ const URL = 'http://localhost:5000';
 
 export const handlers = [
   rest.get(`${URL}/products`, (req, res, ctx) => {
-    return res (
+    return res(
       ctx.json([
         {
           name: 'America',
@@ -18,7 +18,7 @@ export const handlers = [
     )
   }),
   rest.get(`${URL}/options`, (req, res, ctx) => {
-    return res (
+    return res(
       ctx.json([
         {
           name: 'Insurance',
@@ -29,5 +29,8 @@ export const handlers = [
       ])
     )
   }),
-
+  rest.post(`${URL}/order`, (req, res, ctx) => {
+    const dummyData = [{orderNumber: 1234567, price: 2000}];
+    return res(ctx.json(dummyData));
+  }),
 ]
